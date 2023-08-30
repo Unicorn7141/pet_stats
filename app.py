@@ -25,9 +25,6 @@ hide_st_style = """
 # st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
-pets = [Pet()]
-
-
 # --- MENU BAR ---
 menu = option_menu(
     menu_title=None,
@@ -37,6 +34,7 @@ menu = option_menu(
 )
 
 # --- PET STATS INPUT ---
+st.session_state["pet"] = Pet()
 if menu == "Fill Stats":
     with st.form("pet_stats"):
         with st.expander("Pet's Stats"):
@@ -47,7 +45,7 @@ if menu == "Fill Stats":
             power = st.number_input("Power:", 1, 250, 200, key="power")
 
         with st.expander("Selfish Talents"):
-            for talent in pets[0].selfish_talents.keys():
+            for talent in st.session_state["pet"].selfish_talents.keys():
                 st.checkbox(talent, key=talent)
 
         submitted = st.form_submit_button("Calculate Talents")
