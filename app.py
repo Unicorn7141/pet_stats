@@ -63,13 +63,13 @@ if menu == "Fill Stats":
 
 elif st.session_state["pet"]:
     pet = st.session_state["pet"]
-    st.write(pet.stats)
+    # st.write(pet.stats)
     for category, talents in pet.talents.items():
         st.header(category)
         cols = st.columns(len(talents.items()))
         i = 0
         for name, value in talents.items():
-            st.write(name + " " + str(value))
+            # st.write(name + " " + str(value))
             cols[i].metric(label=name, value=int(value))
             i += 1
 
