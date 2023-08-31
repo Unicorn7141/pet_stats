@@ -21,7 +21,7 @@ hide_st_style = """
     </style>
 """
 
-# st.markdown(hide_st_style, unsafe_allow_html=True)
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # --- MENU BAR ---
@@ -33,7 +33,6 @@ menu = option_menu(
 )
 
 # --- PET STATS INPUT ---
-
 if menu == "Fill Stats":
     pet = st.session_state.get("pet", default=Pet())
     s, a, w, p, i = pet.stats.values()
