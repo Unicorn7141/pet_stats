@@ -9,7 +9,6 @@ page_title = "Pet Stats Calculator"
 page_icon = ":abacus:"
 layout = "centered"
 
-
 st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
 st.title(f"{page_title} {page_icon}")
 
@@ -34,12 +33,9 @@ menu = option_menu(
 )
 
 # --- PET STATS INPUT ---
-st.session_state["pet"] = (
-    Pet() if not st.session_state["pet"] else st.session_state["pet"]
-)
 
 if menu == "Fill Stats":
-    pet = st.session_state["pet"]
+    pet = st.session_state.get("pet", default=Pet())
     s, a, w, p, i = pet.stats.values()
     with st.form("pet_stats"):
         with st.expander("Pet's Stats"):
@@ -67,12 +63,13 @@ if menu == "Fill Stats":
 
 elif st.session_state["pet"]:
     pet = st.session_state["pet"]
-    # st.write(pet.stats)
+    st.write(pet.stats)
     for category, talents in pet.talents.items():
         st.header(category)
         cols = st.columns(len(talents.items()))
         i = 0
         for name, value in talents.items():
+            st.write(name + " " + str(value))
             cols[i].metric(label=name, value=int(value))
             i += 1
 

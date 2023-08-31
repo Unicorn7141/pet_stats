@@ -1,5 +1,5 @@
 class Pet:
-    def __init__(self, strength=1, agility=1, intellect=1, will=1, power=1):
+    def __init__(self, strength=200, agility=200, intellect=200, will=200, power=200):
         self.strength = strength
         self.agility = agility
         self.intellect = intellect
@@ -173,9 +173,8 @@ class Pet:
             (5 / 2000) * (2 * Strength + 2 * Agility + Power), 0
         )
 
-        self.talents["Out. Healing"]["Healer"] = (
-            round((6 / 2000) * (2 * Strength + 2 * Will + Power)),
-            0,
+        self.talents["Out. Healing"]["Healer"] = round(
+            (6 / 2000) * (2 * Strength + 2 * Will + Power), 0
         )
         self.talents["Out. Healing"]["Medic"] = round(
             (13 / 2000) * (2 * Strength + 2 * Will + Power), 0
