@@ -58,6 +58,7 @@ if menu == "Fill Stats":
                         pet.stats[key] += value
             pet.load_talents()
             st.session_state["pet"] = pet
+            st.success("Results available!")
 
 elif st.session_state["pet"]:
     pet = st.session_state["pet"]
