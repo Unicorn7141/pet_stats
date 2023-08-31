@@ -1,5 +1,5 @@
 class Pet:
-    def __init__(self, strength=0, agility=0, intellect=0, will=0, power=0):
+    def __init__(self, strength=1, agility=1, intellect=1, will=1, power=1):
         self.strength = strength
         self.agility = agility
         self.intellect = intellect
@@ -116,66 +116,67 @@ class Pet:
         Strength = self.strength
         Intellect = self.intellect
 
-        self.talents["Damage"]["Boon"] = int(
-            (1 / 400) * (2 * Strength + 2 * Will + Power)
+        self.talents["Damage"]["Boon"] = round(
+            (1 / 400) * (2 * Strength + 2 * Will + Power), 0
         )
-        self.talents["Damage"]["Giver"] = int(
-            (2 / 400) * (2 * Strength + 2 * Will + Power)
+        self.talents["Damage"]["Giver"] = round(
+            (2 / 400) * (2 * Strength + 2 * Will + Power), 0
         )
-        self.talents["Damage"]["Dealer"] = int(
-            (3 / 400) * (2 * Strength + 2 * Will + Power)
-        )
-
-        self.talents["Resist"]["Defy"] = int(
-            (1 / 250) * (2 * Strength + 2 * Agility + Power)
-        )
-        self.talents["Resist"]["Proof"] = int(
-            (2 / 250) * (2 * Strength + 2 * Agility + Power)
-        )
-        self.talents["Resist"]["Ward"] = int(
-            (3 / 250) * (2 * Strength + 2 * Agility + Power)
+        self.talents["Damage"]["Dealer"] = round(
+            (3 / 400) * (2 * Strength + 2 * Will + Power), 0
         )
 
-        self.talents["Accuracy"]["Eye"] = int(
-            (1 / 400) * (2 * Intellect + 2 * Agility + Power)
+        self.talents["Resist"]["Defy"] = round(
+            (1 / 250) * (2 * Strength + 2 * Agility + Power), 0
         )
-        self.talents["Accuracy"]["Shot"] = int(
-            (2 / 400) * (2 * Intellect + 2 * Agility + Power)
+        self.talents["Resist"]["Proof"] = round(
+            (2 / 250) * (2 * Strength + 2 * Agility + Power), 0
         )
-        self.talents["Accuracy"]["Sniper"] = int(
-            (3 / 400) * (2 * Intellect + 2 * Agility + Power)
-        )
-
-        self.talents["Critical"]["Critical Hitter"] = int(
-            (18 / 1000) * (2 * Agility + 2 * Will + Power)
-        )
-        self.talents["Critical"]["Critical Striker"] = int(
-            (24 / 1000) * (2 * Agility + 2 * Will + Power)
-        )
-        self.talents["Critical"]["Striker"] = int(
-            (20 / 1000) * (2 * Agility + 2 * Will + Power)
-        )
-        self.talents["Critical"]["Assailant"] = int(
-            (25 / 1000) * (2 * Agility + 2 * Will + Power)
+        self.talents["Resist"]["Ward"] = round(
+            (3 / 250) * (2 * Strength + 2 * Agility + Power), 0
         )
 
-        self.talents["Critical Block"]["Blocker"] = int(
-            (18 / 1000) * (2 * Intellect + 2 * Will + Power)
+        self.talents["Accuracy"]["Eye"] = round(
+            (1 / 400) * (2 * Intellect + 2 * Agility + Power), 0
         )
-        self.talents["Critical Block"]["Defender"] = int(
-            (24 / 1000) * (2 * Intellect + 2 * Will + Power)
+        self.talents["Accuracy"]["Shot"] = round(
+            (2 / 400) * (2 * Intellect + 2 * Agility + Power), 0
         )
-
-        self.talents["Armor Piercing"]["Piercer"] = int(
-            (3 / 2000) * (2 * Strength + 2 * Agility + Power)
-        )
-        self.talents["Armor Piercing"]["Breaker"] = int(
-            (5 / 2000) * (2 * Strength + 2 * Agility + Power)
+        self.talents["Accuracy"]["Sniper"] = round(
+            (3 / 400) * (2 * Intellect + 2 * Agility + Power), 0
         )
 
-        self.talents["Out. Healing"]["Healer"] = int(
-            (6 / 2000) * (2 * Strength + 2 * Will + Power)
+        self.talents["Critical"]["Critical Hitter"] = round(
+            (18 / 1000) * (2 * Agility + 2 * Will + Power), 0
         )
-        self.talents["Out. Healing"]["Medic"] = int(
-            (13 / 2000) * (2 * Strength + 2 * Will + Power)
+        self.talents["Critical"]["Critical Striker"] = round(
+            (24 / 1000) * (2 * Agility + 2 * Will + Power), 0
+        )
+        self.talents["Critical"]["Striker"] = round(
+            (20 / 1000) * (2 * Agility + 2 * Will + Power), 0
+        )
+        self.talents["Critical"]["Assailant"] = round(
+            (25 / 1000) * (2 * Agility + 2 * Will + Power), 0
+        )
+
+        self.talents["Critical Block"]["Blocker"] = round(
+            (18 / 1000) * (2 * Intellect + 2 * Will + Power), 0
+        )
+        self.talents["Critical Block"]["Defender"] = round(
+            (24 / 1000) * (2 * Intellect + 2 * Will + Power), 0
+        )
+
+        self.talents["Armor Piercing"]["Piercer"] = round(
+            (3 / 2000) * (2 * Strength + 2 * Agility + Power), 0
+        )
+        self.talents["Armor Piercing"]["Breaker"] = round(
+            (5 / 2000) * (2 * Strength + 2 * Agility + Power), 0
+        )
+
+        self.talents["Out. Healing"]["Healer"] = (
+            round((6 / 2000) * (2 * Strength + 2 * Will + Power)),
+            0,
+        )
+        self.talents["Out. Healing"]["Medic"] = round(
+            (13 / 2000) * (2 * Strength + 2 * Will + Power), 0
         )
