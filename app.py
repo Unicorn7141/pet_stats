@@ -57,6 +57,11 @@ if menu == "Fill Stats":
                     for key, value in bonus.items():
                         pet.stats[key] += value
             pet.load_talents()
+            for talent in pet.selfish_talents.keys():
+                if st.session_state[talent]:
+                    bonus = pet.selfish_talents[talent]
+                    for key, value in bonus.items():
+                        pet.stats[key] -= value
             st.session_state["pet"] = pet
             st.success("Results available!")
 
